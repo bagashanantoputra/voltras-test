@@ -1,21 +1,17 @@
 function diamondGenerator(height) {
-    // Calculate the middle point of the diamond.
+    // Calculate the middle point of the diamond by dividing the height by 2 and rounding it down using Math.floor() method.
     const middle = Math.floor(height / 2);
-    
-    // Use a string to accumulate the final diamond pattern, instead of logging each line separately.
-    let diamondPattern = '';
-  
     // Use a for loop to generate the diamond pattern line by line, from top to bottom.
     for (let i = 0; i < height; i++) {
-      // Calculate the number of spaces and asterisks required for each line, and concatenate them to the diamond pattern string.
-      diamondPattern += " ".repeat(Math.abs(middle - i)) + "*".repeat(height - Math.abs(middle - i) * 2) + "\n";
+      // Calculate the number of spaces required for each line using absolute difference between middle value and current index.
+      const spaces = Math.abs(middle - i);
+      // Calculate the number of asterisks '*' required for each line using a formula involving spaces and height of diamond.
+      const stars = height - spaces * 2;
+      // Log each line to the console, with appropriate number of spaces and asterisks.
+      console.log(" ".repeat(spaces) + "*".repeat(stars));
     }
-  
-    // Log the final diamond pattern string to the console.
-    console.log(diamondPattern);
   }
   
-  // Call the function 
-  diamondGenerator(3);
-  diamondGenerator(6);
-  
+  // Call the function
+  diamondGenerator(5); 
+  diamondGenerator(6); 
